@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Header artwork used inside FlexibleSpaceBar. Light/dark variants supported.
 class HeaderArtwork extends StatelessWidget {
-  const HeaderArtwork({Key? key, this.light = false, this.headerImageUrl}) : super(key: key);
+  const HeaderArtwork({super.key, this.light = false, this.headerImageUrl});
 
   final bool light;
   final String? headerImageUrl;
@@ -32,7 +32,16 @@ class HeaderArtwork extends StatelessWidget {
           Positioned.fill(
             child: Opacity(
               opacity: 0.14,
-              child: Image.network(headerImageUrl!, fit: BoxFit.cover, alignment: Alignment.center),
+              child: Image.network(
+                headerImageUrl!,
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+                loadingBuilder: (context, child, progress) {
+                  if (progress == null) return child;
+                  return const ColoredBox(color: Color(0x00FFFFFF));
+                },
+                errorBuilder: (context, error, stack) => const SizedBox.shrink(),
+              ),
             ),
           ),
 
