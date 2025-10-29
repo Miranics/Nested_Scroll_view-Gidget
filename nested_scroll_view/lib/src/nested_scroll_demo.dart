@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-// Soft accent for gallery / UI elements (milk / warm beige)
-const Color _accent = Color(0xFFBFAF9E);
+import 'constants.dart';
+import 'header_artwork.dart';
+import 'gallery_card.dart';
 
 /// A concise but visually distinct demo of NestedScrollView styled as
 /// an art gallery. The example focuses on demonstrating coordinated
@@ -28,7 +28,7 @@ class NestedScrollDemo extends StatelessWidget {
               expandedHeight: 320,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              flexibleSpace: FlexibleSpaceBar(background: _HeaderArtwork.light()),
+              flexibleSpace: FlexibleSpaceBar(background: HeaderArtwork.light(headerImageUrl: 'https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1200&q=80')),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(64),
                 child: Container(
@@ -87,7 +87,7 @@ class NestedScrollDemo extends StatelessWidget {
         itemCount: itemCount,
         itemBuilder: (context, i) {
           final src = imagePaths.isNotEmpty ? imagePaths[i] : 'https://picsum.photos/seed/art_$i/800/1200';
-          return _GalleryCard(index: i, imageSource: src);
+          return GalleryCard(index: i, imageSource: src);
         },
       );
     });
@@ -121,7 +121,7 @@ class NestedScrollDemo extends StatelessWidget {
             padding: const EdgeInsets.all(14),
             child: Row(
               children: [
-                CircleAvatar(radius: 26, backgroundColor: _accent, child: Text('${i + 1}', style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))),
+                CircleAvatar(radius: 26, backgroundColor: kAccent, child: Text('${i + 1}', style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -129,7 +129,7 @@ class NestedScrollDemo extends StatelessWidget {
                     children: [
                       Text(attributes[i], style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w700)),
                       const SizedBox(height: 6),
-                      LinearProgressIndicator(value: value / 100.0, color: _accent, backgroundColor: const Color.fromRGBO(0, 0, 0, 0.04), minHeight: 8),
+                      LinearProgressIndicator(value: value / 100.0, color: kAccent, backgroundColor: const Color.fromRGBO(0, 0, 0, 0.04), minHeight: 8),
                     ],
                   ),
                 ),
@@ -160,7 +160,7 @@ class NestedScrollDemo extends StatelessWidget {
               Flexible(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                  decoration: BoxDecoration(color: mine ? _accent : Colors.white, borderRadius: BorderRadius.circular(14), boxShadow: [const BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.03), blurRadius: 6)]),
+                  decoration: BoxDecoration(color: mine ? kAccent : Colors.white, borderRadius: BorderRadius.circular(14), boxShadow: [const BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.03), blurRadius: 6)]),
                   child: Text(mine ? 'Quick reply from you (#$i)' : 'Message number $i — a sample bubble to show nested scroll behavior.', style: TextStyle(color: mine ? Colors.black87 : Colors.black87)),
                 ),
               ),
@@ -169,152 +169,6 @@ class NestedScrollDemo extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-/// Header artwork used inside FlexibleSpaceBar. Uses soft, gallery-like
-/// colours for the light variant.
-class _HeaderArtwork extends StatelessWidget {
-  const _HeaderArtwork({this.light = false});
-
-  final bool light;
-
-  /// Convenience constructor for the light variant used by the demo.
-  factory _HeaderArtwork.light() => const _HeaderArtwork(light: true);
-
-  @override
-  Widget build(BuildContext context) {
-    // Different palettes depending on light/dark mode for the header.
-    final bgColors = light ? const [Color(0xFFFDF9F5), Color(0xFFF3EEE8), Color(0xFFEDE7E0)] : const [Color(0xFF0F3460), Color(0xFF6D0EB5), Color(0xFF35D0BA)];
-
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        // Background gradient
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: bgColors,
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-        ),
-        // Tilted, semi-transparent panels for depth
-        Positioned(
-          left: -40,
-          top: 40,
-          child: Transform.rotate(
-            angle: -0.25,
-            child: Container(
-              width: 240,
-              height: 160,
-              decoration: BoxDecoration(
-                color: light ? Colors.black12 : Colors.white10,
-                borderRadius: BorderRadius.circular(24),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          right: -60,
-          bottom: -10,
-          child: Transform.rotate(
-            angle: 0.20,
-            child: Container(
-              width: 300,
-              height: 180,
-              decoration: BoxDecoration(
-                color: light ? Colors.black12 : Colors.black12,
-                borderRadius: BorderRadius.circular(36),
-              ),
-            ),
-          ),
-        ),
-        // Center title and subtitle
-        Positioned(
-          left: 18,
-          right: 18,
-          bottom: 56,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Gallery — Curated Works', style: TextStyle(color: light ? Colors.black87 : Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 6),
-              Text(
-                'A minimal NestedScrollView demo styled as an art gallery',
-                style: TextStyle(color: light ? Colors.black54 : Colors.white70),
-              ),
-            ],
-          ),
-        ),
-        // Decorative floating avatar
-        Positioned(
-          right: 18,
-          top: 42,
-          child: CircleAvatar(
-            radius: 36,
-            backgroundColor: light ? Colors.black12 : Colors.white,
-            child: CircleAvatar(
-              radius: 32,
-              backgroundColor: light ? const Color(0xFFBFAF9E) : const Color(0xFF6D0EB5),
-              child: Icon(Icons.brush, color: light ? Colors.white70 : Colors.white),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-/// Single gallery card used in the grid. Supports network URLs and asset paths.
-class _GalleryCard extends StatelessWidget {
-  const _GalleryCard({required this.index, required this.imageSource});
-
-  final int index;
-  final String imageSource;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      elevation: 1,
-      borderRadius: BorderRadius.circular(12),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            // Image (network placeholder or asset)
-            _buildImage(imageSource),
-            // Caption overlay
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                color: const Color.fromRGBO(255, 255, 255, 0.9),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [Text('Artwork #${index + 1}', style: const TextStyle(fontWeight: FontWeight.w700)), const SizedBox(height: 4), Text('Artist name', style: TextStyle(color: Colors.black54, fontSize: 12))]),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildImage(String src) {
-    if (src.startsWith('http')) {
-      return Image.network(src, fit: BoxFit.cover, loadingBuilder: (context, child, progress) {
-        if (progress == null) return child;
-        return Container(color: const Color(0xFFF2F0EC));
-      }, errorBuilder: (context, err, st) {
-        return Container(color: const Color(0xFFF2F0EC), child: const Icon(Icons.broken_image, size: 48, color: Colors.black26));
-      });
-    }
-
-    return Image.asset(src, fit: BoxFit.cover);
   }
 }
 
