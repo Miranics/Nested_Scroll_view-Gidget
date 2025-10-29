@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// no shared constants required here
+
 
 /// Header artwork used inside FlexibleSpaceBar. Light/dark variants supported.
 class HeaderArtwork extends StatelessWidget {
@@ -75,22 +75,22 @@ class HeaderArtwork extends StatelessWidget {
           ]),
         ),
 
-        // Decorative floating avatar — tries to load local asset profile image and falls back to an icon
-        Positioned(
-          right: 18,
-          top: 42,
-          child: CircleAvatar(
-            radius: 36,
-            backgroundColor: light ? Colors.black12 : Colors.white,
-            child: ClipOval(
-              child: SizedBox(
-                width: 64,
-                height: 64,
-                child: Image.asset('assets/profile.jpg', fit: BoxFit.cover, errorBuilder: (c, e, s) => const Icon(Icons.person, size: 36)),
+        // Decorative floating avatar 
+          Positioned(
+            right: 18,
+            top: 32,
+            child: CircleAvatar(
+              radius: 44,
+              backgroundColor: light ? Colors.black12 : Colors.white,
+              child: ClipOval(
+                child: SizedBox(
+                  width: 80,
+                  height: 80,
+                  child: Image.asset('assets/profile.jpg', fit: BoxFit.cover, errorBuilder: (c, e, s) => const Icon(Icons.person, size: 48)),
+                ),
               ),
             ),
           ),
-        ),
       ],
     );
   }

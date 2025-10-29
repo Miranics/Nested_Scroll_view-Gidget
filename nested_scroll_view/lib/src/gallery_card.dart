@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 /// A single gallery card used in the grid. Supports network URLs and asset paths.
 class GalleryCard extends StatelessWidget {
-  const GalleryCard({required this.index, required this.imageSource, super.key});
+  const GalleryCard({required this.index, required this.imageSource, this.artistName, super.key});
 
   final int index;
   final String imageSource;
+  final String? artistName;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class GalleryCard extends StatelessWidget {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
                   Text('Artwork #${index + 1}', style: const TextStyle(fontWeight: FontWeight.w700)),
                   const SizedBox(height: 4),
-                  Text('Artist name', style: TextStyle(color: Colors.black54, fontSize: 12)),
+                  Text(artistName ?? 'Artist ${index + 1}', style: TextStyle(color: Colors.black54, fontSize: 12)),
                 ]),
               ),
             ),

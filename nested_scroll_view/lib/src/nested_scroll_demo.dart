@@ -28,7 +28,7 @@ class NestedScrollDemo extends StatelessWidget {
               expandedHeight: 320,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              flexibleSpace: FlexibleSpaceBar(background: HeaderArtwork.light(headerImageUrl: 'https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1200&q=80')),
+              flexibleSpace: FlexibleSpaceBar(background: HeaderArtwork.light(headerImageUrl: 'https://picsum.photos/seed/header_art_1/1200/420')),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(64),
                 child: Container(
@@ -87,7 +87,7 @@ class NestedScrollDemo extends StatelessWidget {
         itemCount: itemCount,
         itemBuilder: (context, i) {
           final src = imagePaths.isNotEmpty ? imagePaths[i] : 'https://picsum.photos/seed/art_$i/800/1200';
-          return GalleryCard(index: i, imageSource: src);
+          return GalleryCard(index: i, imageSource: src, artistName: 'Artist ${i + 1}');
         },
       );
     });
