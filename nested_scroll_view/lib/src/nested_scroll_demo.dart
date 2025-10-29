@@ -94,7 +94,6 @@ class NestedScrollDemo extends StatelessWidget {
   }
 
   Widget _buildStatsTab() {
-    // Attributes relevant to an art gallery — each shows a simple score.
     const attributes = [
       'Authenticity',
       'Condition',

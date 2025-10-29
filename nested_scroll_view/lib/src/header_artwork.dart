@@ -71,7 +71,7 @@ class HeaderArtwork extends StatelessWidget {
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('Gallery — Curated Works', style: TextStyle(color: light ? Colors.black87 : Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
             const SizedBox(height: 6),
-            Text('A minimal NestedScrollView demo styled as an art gallery', style: TextStyle(color: light ? Colors.black54 : Colors.white70)),
+            Text('Curated selection of contemporary and classic works', style: TextStyle(color: light ? Colors.black54 : Colors.white70)),
           ]),
         ),
 
