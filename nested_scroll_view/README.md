@@ -56,6 +56,9 @@ flutter run
 - `SliverAppBar.expandedHeight` — Height of the expanded header.
 - `FlexibleSpaceBar.background` — Large artwork shown when expanded.
 
-## Sources & Attribution
+## Sources 
 
-Code built using Flutter's official documentation on `SliverAppBar`, `NestedScrollView`, and sliver-based layouts.
+Code built using Flutter's official documentation:
+- [SliverAppBar](https://api.flutter.dev/flutter/material/SliverAppBar-class.html)
+- [NestedScrollView](https://api.flutter.dev/flutter/widgets/NestedScrollView-class.html)
+- [Sliver-based layouts](https://docs.flutter.dev/ui/advanced/slivers)
