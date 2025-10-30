@@ -39,7 +39,7 @@ flutter run
 
 ## Screenshot
 
-![App screenshot](assets/screenshot.png)
+![App screenshot](nested_scroll_view\assets\screenshot.png)
 
 ## Key Files
 
