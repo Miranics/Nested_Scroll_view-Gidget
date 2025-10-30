@@ -1,6 +1,6 @@
 # NestedScrollView Widget Study
 
-This project demonstrates the Flutter `NestedScrollView` widget — a container that coordinates scrolling between an outer sliver-based header and inner scrollable content.
+This project demonstrates the Flutter `NestedScrollView` widget ;  a container that coordinates scrolling between an outer sliver-based header and inner scrollable content.
 
 ## What is NestedScrollView?
 
