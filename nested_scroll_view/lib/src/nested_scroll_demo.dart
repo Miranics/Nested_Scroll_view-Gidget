@@ -6,7 +6,7 @@ import 'gallery_card.dart';
 
 class NestedScrollDemo extends StatelessWidget {
   
-  /// demo uses placeholder network images so the layout is visible.
+  /// uses placeholder network images so the layout is visible.
   const NestedScrollDemo({super.key, this.imagePaths = const []});
 
   final List<String> imagePaths;

@@ -27,7 +27,7 @@ class HeaderArtwork extends StatelessWidget {
           ),
         ),
 
-        // Optional colourful header image overlay (fades in). Increased opacity
+        // Optional colourful header image overlay 
       
         if (headerImageUrl != null)
           Positioned.fill(

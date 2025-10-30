@@ -3,7 +3,7 @@ import 'src/nested_scroll_demo.dart';
 
 void main() => runApp(const DemoApp());
 
-/// Minimal app entrypoint. Keeps `main.dart` tiny and clean.
+/// Minimal app entrypoint
 class DemoApp extends StatelessWidget {
   const DemoApp({super.key});
 
