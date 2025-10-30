@@ -58,4 +58,7 @@ flutter run
 
 ## Sources 
 
-Code built using Flutter's official documentation on `SliverAppBar`, `NestedScrollView`, and sliver-based layouts.
+Code built using Flutter's official documentation:
+- [SliverAppBar](https://api.flutter.dev/flutter/material/SliverAppBar-class.html)
+- [NestedScrollView](https://api.flutter.dev/flutter/widgets/NestedScrollView-class.html)
+- [Sliver-based layouts](https://docs.flutter.dev/ui/advanced/slivers)
