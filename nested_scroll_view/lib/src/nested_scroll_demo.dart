@@ -3,11 +3,9 @@ import 'constants.dart';
 import 'header_artwork.dart';
 import 'gallery_card.dart';
 
-/// A concise but visually distinct demo of NestedScrollView styled as
-/// an art gallery. The example focuses on demonstrating coordinated
-/// scrolling between an expanding `SliverAppBar` and inner scrollables.
+
 class NestedScrollDemo extends StatelessWidget {
-  /// Optional image sources (asset paths or http URLs). If empty, the
+  
   /// demo uses placeholder network images so the layout is visible.
   const NestedScrollDemo({super.key, this.imagePaths = const []});
 
@@ -28,7 +26,8 @@ class NestedScrollDemo extends StatelessWidget {
               expandedHeight: 320,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              flexibleSpace: FlexibleSpaceBar(background: HeaderArtwork.light(headerImageUrl: 'https://picsum.photos/seed/header_art_1/1200/420')),
+              // Use a brighter header image seed to make the artwork more visible in demos.
+              flexibleSpace: FlexibleSpaceBar(background: HeaderArtwork.light(headerImageUrl: 'https://picsum.photos/seed/header_bright/1400/520')),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(64),
                 child: Container(

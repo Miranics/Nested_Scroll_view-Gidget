@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-// no shared constants required here
-
-/// A single gallery card used in the grid. Supports network URLs and asset paths.
 class GalleryCard extends StatelessWidget {
   const GalleryCard({required this.index, required this.imageSource, this.artistName, super.key});
 
