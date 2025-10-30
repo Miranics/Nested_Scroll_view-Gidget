@@ -26,7 +26,6 @@ class NestedScrollDemo extends StatelessWidget {
               expandedHeight: 320,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              // Use a brighter header image seed to make the artwork more visible in demos.
               flexibleSpace: FlexibleSpaceBar(background: HeaderArtwork.light(headerImageUrl: 'https://picsum.photos/seed/header_bright/1400/520')),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(64),
@@ -108,7 +107,7 @@ class NestedScrollDemo extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       itemCount: attributes.length,
       itemBuilder: (context, i) {
-        // Demo values: deterministic but varied so bars look different.
+
         final value = ((i * 37) % 91) + 9; // range ~9..99
         return Card(
           color: Colors.white,
