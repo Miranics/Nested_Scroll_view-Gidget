@@ -1,16 +1,48 @@
-# nested_scroll_view
+# NestedScrollView — Quick Demo
 
-A new Flutter project.
+A minimal Flutter demo showing a collapsing header (SliverAppBar + FlexibleSpace) coordinated with inner scrolling content using `NestedScrollView`.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Flutter SDK installed and on your PATH
+- A web browser (Chrome) or Android emulator/device
 
-A few resources to get you started if this is your first Flutter project:
+### Run the app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter analyze
+flutter run -d chrome
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For Android:
+```bash
+emulator -avd Pixel_7 -gpu host
+flutter run
+```
+
+## Demo Points
+
+- **Authenticity**: Header artwork preserves context and brand presence when expanded.
+- **Condition**: Smooth collapse/expand transitions with safe image loading.
+- **Popularity**: Gallery grid layout helps surface important items; header interaction guides discovery.
+
+## Project Structure
+
+```
+lib/
+  main.dart                 # App entry point
+  src/
+    nested_scroll_demo.dart # Main NestedScrollView implementation
+    header_artwork.dart     # Header widget with artwork and avatar
+    gallery_card.dart       # Gallery grid item widget
+    constants.dart          # Shared constants (colors, etc.)
+```
+
+## Screenshot
+
+Add a screenshot to `assets/screenshot.png` after running the app.
+
+## Sources & Attribution
+
+Code built using Flutter's official documentation on SliverAppBar and NestedScrollView. No external code tutorials were directly copied.
