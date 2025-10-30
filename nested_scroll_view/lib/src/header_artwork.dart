@@ -8,7 +8,7 @@ class HeaderArtwork extends StatelessWidget {
   final bool light;
   final String? headerImageUrl;
 
-  /// Convenience constructor for the light variant used by the demo.
+
   factory HeaderArtwork.light({Key? key, String? headerImageUrl}) => HeaderArtwork(key: key, light: true, headerImageUrl: headerImageUrl);
 
   @override
